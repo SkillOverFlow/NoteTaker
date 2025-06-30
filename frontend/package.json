@@ -20,10 +20,12 @@
     "ckeditor5": "^45.2.1",
     "ckeditor5-premium-features": "^45.2.1",
     "crypto": "^1.0.1",
+    "firebase": "^11.9.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
-    "styled-components": "^6.1.19"
+    "styled-components": "^6.1.19",
+    "uuid": "^11.1.0"
   },
   "engines": {
     "node": "^14.18.0 || >= 16.0.0"
