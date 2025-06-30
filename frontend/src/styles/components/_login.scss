@@ -1,0 +1,108 @@
+@use "sass:color";
+@use '../base/vars' as *;
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, $bg, color.adjust($bg, $lightness: 10%));
+  background-size: 120px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+
+  &-main {
+    display: flex;
+    align-items: center;
+    border-top: 10px solid $secondary;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+
+    @include mq(sm) {
+      background: #fafafa;
+      height: auto;
+      padding: 6em 2em;
+      width: 500px;
+    }
+  }
+
+  .MuiButton-root {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.login-wrap {
+  width: 80%;
+  margin: auto;
+  color: #fff;
+
+  @include mq(sm) {
+    color: $primary;
+  }
+}
+
+.login-title {
+  font-size: 2.5em;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.login-subtitle {
+  font-size: 1.2em;
+  font-weight: normal;
+  margin-bottom: 1.5em;
+
+  @include mq(sm) {
+    font-size: 1.5em;
+  }
+}
+
+// LoginButton Component
+.login-btn-social.MuiButtonBase-root {
+  width: 100%;
+  margin-bottom: 1em;
+
+  .login-btn-icon {
+    margin-right: 14px;
+    overflow: hidden;
+    width: 20px;
+  }
+
+  .login-btn-name {
+    text-transform: capitalize;
+    margin-left: 5px;
+  }
+
+  &.google {
+    background: #fff;
+    color: $primary;
+
+    &:hover {
+      background: rgba(#000, 0.02);
+    }
+  }
+
+  &.twitter {
+    background: $secondary;
+    color: #fff;
+
+    &:hover {
+      background: color.adjust($secondary, $lightness: 3%);
+    }
+  }
+
+  &.github {
+    background: $primary;
+    color: #fff;
+
+    &:hover {
+      background: color.adjust($primary, $lightness: 5%);
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { List, ListItem, ListItemText } from "@mui/material";
 import { AttachFile } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { dateFormat } from "../../util/dateFormat";
+import { dateFormat } from "../../utils/dateFormat";
 // import { activateNote } from "../../redux/actions/noteActions";
 import empty from "../../assets/images/empty.svg";
 // import { showNoteMobile } from "../../redux/actions/uiActions";

@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { IconButton } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
 // import { removeUploadFile } from "../../redux/actions/noteActions";
-import { DeleteIcon } from "@mui/icons-material";
+import { DeleteOutline } from "@mui/icons-material";
 // import { deleteFile } from "../../providers/firebaseService";
 
 export const FileListUpload = ({ files }) => {
@@ -23,7 +23,7 @@ export const FileListUpload = ({ files }) => {
             aria-label="Eliminar Archivo"
             onClick={() => handleDelete(file)}
           >
-            <DeleteIcon />
+            <DeleteOutline />
           </IconButton>
         </div>
       ))}

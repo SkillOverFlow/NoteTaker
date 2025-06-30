@@ -1,0 +1,34 @@
+// Colors
+$primary: #1c2237;
+$secondary: #4d5aff;
+$text-color: #273b47; //#7c87a8;
+$yellow: #fecb2f;
+$orange: #fa6b41;
+$red: #fa3758;
+$bg: #1f2740;
+$listColor: #7c87a8;
+
+$breakpoint-xs: 360px;
+$breakpoint-sm: 767px;
+$breakpoint-md: 1023px;
+$breakpoint-lg: 1360px;
+
+@mixin mq($media) {
+  @if $media == xs {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $media == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $media == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $media == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}

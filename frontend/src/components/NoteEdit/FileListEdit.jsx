@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { IconButton } from "@mui/material";
 // import { removeFile } from "../../redux/actions/noteActions";
-import { DeleteIcon } from "@mui/icons-material";
+import { DeleteOutline } from "@mui/icons-material";
 
 export const FileListEdit = ({ files }) => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export const FileListEdit = ({ files }) => {
             aria-label="Eliminar Archivo"
             onClick={() => handleDelete(file)}
           >
-            <DeleteIcon />
+            <DeleteOutline />
           </IconButton>
         </div>
       ))}

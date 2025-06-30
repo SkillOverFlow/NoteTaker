@@ -1,0 +1,214 @@
+@use "sass:color";
+@use "../base/vars" as *;
+
+.note {
+  background: #fff;
+  color: $text-color;
+  z-index: 200;
+  overflow-y: auto;
+
+  @include mq(md) {
+    padding: 2em;
+    padding-top: 0;
+    position: relative;
+    width: 57%;
+  }
+
+  &-actionbar {
+    height: 30px;
+    text-align: right;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+.note-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: $primary;
+  margin-top: 0;
+  border-bottom: 2px solid #000;
+  padding-top: 0.5em;
+  padding-bottom: 0.4em;
+
+  @include mq(md) {
+    font-size: 30px;
+  }
+}
+
+.note-body {
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 2em;
+  line-height: 30px;
+
+  h2,
+  h3 {
+    font-size: 20px;
+    border-bottom: 1px solid #000;
+    font-weight: 500;
+    color: $primary;
+    margin-top: 40px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    line-height: 32px;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  strong {
+    font-weight: 500;
+    color: #000;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  table {
+    border: 1px solid #ccc;
+  }
+
+  table tr:nth-of-type(odd) {
+    background: rgba($secondary, 0.1);
+  }
+
+  table td {
+    padding: 0.5em;
+  }
+
+  ol li,
+  ul li {
+    margin-bottom: 1em;
+  }
+
+  li>ul {
+    margin-top: 0.5em;
+  }
+
+  blockquote {
+    border-left: 5px solid #ccc;
+    margin-left: 0;
+    padding: 1em;
+
+    p {
+      margin: 0;
+      font-style: italic;
+    }
+  }
+}
+
+.new-note {
+  padding-top: 2em;
+
+  @include mq(md) {
+    padding: 2em 1em;
+  }
+
+  .MuiFormControl-root {
+    color: $primary;
+    margin-bottom: 2em;
+    width: 100%;
+  }
+
+  .ck.ck-editor__main>.ck-editor__editable {
+    height: 440px;
+    color: $primary;
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
+
+.note-select {
+  display: flex;
+  width: 100%;
+
+  @include mq(sm) {
+    min-width: 200px;
+    width: 40%;
+  }
+}
+
+.note-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 500px;
+    margin-bottom: 2em;
+  }
+
+  span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ccc;
+  }
+}
+
+.editor-error {
+  border: 1px solid #f44336;
+}
+
+.note-footer {
+  padding-bottom: 1em;
+  margin-top: 2em;
+
+  @include mq(sm) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .MuiFormControl-root {
+    margin-bottom: 0;
+  }
+
+  &-btns {
+    margin-top: 2em;
+    text-align: center;
+
+    @include mq(sm) {
+      text-align: right;
+      margin-top: 0;
+    }
+  }
+
+  button {
+    width: 130px;
+    margin: 0 0.5em;
+  }
+
+  .btn-save {
+    background: $secondary;
+    color: #fff;
+
+    &:hover {
+      background: color.adjust($secondary, $lightness: 3%);
+    }
+  }
+}
+
+.note-file-upload {
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+  width: 200px;
+
+  input {
+    display: none;
+  }
+
+  .MuiCircularProgress-colorPrimary {
+    width: 25px !important;
+    height: 25px !important;
+  }
+}

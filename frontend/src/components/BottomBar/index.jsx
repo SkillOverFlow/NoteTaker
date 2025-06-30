@@ -2,7 +2,7 @@ import React from "react";
 import { IconButton } from "@mui/material";
 import { Add, Folder, Note } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { newNote } from "../../redux/actions/noteActions";
+// import { newNote } from "../../redux/actions/noteActions";
 import { NoteModel } from "../../models/noteModel";
 import {
   SHOW_FOLDER_MOBILE,

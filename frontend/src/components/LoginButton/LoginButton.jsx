@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "@mui/material";
 // import { loginSocialNetworks } from "../../redux/actions/authActions";
-import { constants } from "../../constants";
+import { constants } from "../../utils/Constants";
 import { GitHub } from "@mui/icons-material";
 import googleIcon from "../../assets/images/googleIcon.svg";
 

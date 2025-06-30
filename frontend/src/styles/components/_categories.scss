@@ -1,0 +1,60 @@
+@use "sass:color";
+@use "../base/vars" as *;
+
+.categories {
+  background: $primary;
+  padding: 0;
+  z-index: 300;
+
+  @include mq(md) {
+    left: 0;
+    position: relative;
+    width: 18%;
+    min-width: 230px;
+  }
+}
+
+.categories-btn {
+  padding: 1em 2em;
+  height: 65px;
+  display: none;
+
+  @include mq(md) {
+    display: block !important;
+  }
+
+  button {
+    background: $secondary;
+    color: #fff;
+    width: 100%;
+
+    &:hover {
+      background: color.adjust($secondary, $lightness: -3%);
+    }
+  }
+}
+
+.categories-folders {
+  height: calc(100% - 65px);
+  overflow: auto;
+  color: $listColor;
+  padding: 0 0.5em;
+  animation: slideInLeft 0.35s ease-in-out;
+
+  .MuiListItemIcon-root {
+    color: $listColor;
+  }
+
+  .MuiTypography-body1 {
+    font-size: 1.125rem;
+
+    @include mq(md) {
+      font-size: 0.875rem;
+    }
+  }
+
+  .MuiListItem-button.folder-active,
+  .MuiListItem-button.folder-active .MuiListItemIcon-root {
+    color: #fff;
+  }
+}

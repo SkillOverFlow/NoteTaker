@@ -1,0 +1,33 @@
+@use "sass:color";
+@use "../base/vars" as *;
+
+.files-list-edit {
+  width: 45%;
+
+  h3 {
+    margin-bottom: 10px;
+  }
+}
+
+.file-item-edit {
+  background: rgb(245, 245, 245);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1em;
+  margin-bottom: 5px;
+
+  a {
+    text-decoration: none;
+    background: none;
+    color: $primary;
+    width: 80%;
+    text-overflow: ellipsis;
+  }
+}
+
+.files_wrap {
+  display: flex;
+  justify-content: space-between;
+}

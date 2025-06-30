@@ -1,0 +1,136 @@
+@use "../base/vars" as *;
+
+.note__alert .MuiSnackbarContent-message {
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 0.5em;
+  }
+}
+
+.note__alert .MuiSnackbarContent-root {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.note__success .MuiSnackbarContent-root {
+  background-color: #4caf50;
+}
+
+.note__error .MuiSnackbarContent-root {
+  background-color: #f44336;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+
+  @include mq(sm) {
+    display: block;
+  }
+}
+
+.circleloader {
+  margin-left: 44%;
+  margin-top: 10px;
+}
+
+$offset: 187;
+$duration: 1.4s;
+
+.spinner {
+  animation: rotator $duration linear infinite;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+.path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash $duration ease-in-out infinite,
+    colors ($duration * 4) ease-in-out infinite;
+}
+
+@keyframes colors {
+  0% {
+    stroke: #fff;
+  }
+
+  25% {
+    stroke: #de3e35;
+  }
+
+  50% {
+    stroke: #f7c223;
+  }
+
+  75% {
+    stroke: #1b9a59;
+  }
+
+  100% {
+    stroke: #fff;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: $offset;
+  }
+
+  50% {
+    stroke-dashoffset: calc($offset/4);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
+  }
+}
+
+.circleloader {
+  box-sizing: border-box;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #fff;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.menu-files {
+  display: flex;
+
+  a {
+    color: $secondary;
+    display: block;
+    width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-decoration: none;
+  }
+}

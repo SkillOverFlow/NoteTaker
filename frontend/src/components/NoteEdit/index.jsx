@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import { ClassicEditor } from "ckeditor5";
 import { useDispatch } from "react-redux";
-import { editorConfig } from "../../util/editorConfig";
+import { editorConfig } from "../../utils/editorConfig";
 import { DialogFolder } from "./DialogFolder";
 import { constants } from "../../utils/Constants";
 import { UploadFile } from "../UploadFile";

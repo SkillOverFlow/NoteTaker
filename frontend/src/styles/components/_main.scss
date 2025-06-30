@@ -1,0 +1,48 @@
+@use "sass:color";
+@use "../base/vars" as *;
+
+.main-content {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 55px;
+
+  @include mq(sm) {
+    display: flex;
+  }
+
+  .MuiTypography-body1 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: 'Poppins', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  }
+}
+
+.categories,
+.notelist,
+.note {
+  color: #fff;
+  padding: 1em;
+  padding-top: 0;
+  padding-bottom: 65px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.categories.no-show,
+.notelist.no-show,
+.note.no-show {
+  display: none;
+
+  @include mq(md) {
+    display: block !important;
+  }
+}
+
+.categories.show,
+.notelist.show,
+.note.show {
+  display: block;
+}
