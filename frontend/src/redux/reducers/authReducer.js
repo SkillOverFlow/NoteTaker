@@ -1,4 +1,4 @@
-import { types } from "../types/types";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   name: null,
@@ -8,9 +8,11 @@ const initialState = {
   observable: true,
 };
 
-export const authReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case types.authLogin:
+export const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    AUTH_LOGIN: (state) => {
       return {
         ...state,
         name: action.payload.displayName,
@@ -19,20 +21,21 @@ export const authReducer = (state = initialState, action) => {
         photoUrl: action.payload.photoUrl,
         observable: false,
       };
-
-    case types.authLogout:
+    },
+    AUTH_LOGOUT: (state) => {
       return {
         ...initialState,
         observable: false,
       };
-
-    case types.observableNext:
+    },
+    OBSERVABLE_NEXT: (state) => {
       return {
         ...state,
         observable: false,
       };
+    },
+  },
+});
 
-    default:
-      return state;
-  }
-};
+export const { AUTH_LOGIN, AUTH_LOGOUT, OBSERVABLE_NEXT } = authSlice.actions;
+export default authSlice.reducer;
