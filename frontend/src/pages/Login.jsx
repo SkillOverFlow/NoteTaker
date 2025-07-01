@@ -4,9 +4,6 @@ import { LoginButton } from "../components/LoginButton/LoginButton";
 import stickyIcon from "../assets/images/stickyIcon.svg";
 
 export const Login = () => {
-  useEffect(() => {
-    alert();
-  }, []);
   return (
     <div className="login">
       <div className="login-main">

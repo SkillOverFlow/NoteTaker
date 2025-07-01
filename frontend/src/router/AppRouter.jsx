@@ -6,37 +6,47 @@ import {
   Navigate,
   Route,
 } from "react-router-dom";
-// import { login, observableNext } from "../redux/actions/authActions";
-// import { userNotes } from "../redux/actions/noteActions";
+import { auth } from "../providers/firebase";
 import { Login } from "../pages/Login";
 import { Home } from "../pages/Home";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
+import { AUTH_LOGIN } from "../redux/reducers/authReducer";
+import { userNotes } from "../redux/actions/noteActions";
 
 export const AppRouter = () => {
   const dispatch = useDispatch();
-  const { observable, uid } = useSelector((state) => state.auth);
-  useEffect(() => {
-    alert("AppRoute");
-  }, []);
+  const { uid } = useSelector((state) => state.auth);
 
-  // useEffect(() => {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user?.uid) {
-  //       // dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
-  //       // dispatch(userNotes());
-  //     } else {
-  //       // dispatch(observableNext());
-  //     }
-  //   });
-  // }, [dispatch]);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user?.uid) {
+        dispatch(
+          AUTH_LOGIN({
+            uid: user.uid,
+            displayName: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+          })
+        );
+        dispatch(userNotes);
+      } else {
+      }
+    });
+  }, [dispatch]);
 
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={<PrivateRoute isAuth={uid} element={<Home />} />}
+          />
+          <Route
+            path="/login"
+            element={<PublicRoute isAuth={uid} element={<Login />} />}
+          />
           <Route path="*" element={<Navigate to="/" />} />
           {/* Redirect all unknown routes */}
         </Routes>

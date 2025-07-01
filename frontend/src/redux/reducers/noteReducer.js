@@ -15,27 +15,27 @@ export const noteSlice = createSlice({
   name: "note",
   initialState,
   reducers: {
-    CREATE_NOTE: (state) => {
+    CREATE_NOTE: (state, action) => {
       return {
         ...state,
         editNote: action.payload.edit,
         activeNote: action.payload.note,
       };
     },
-    ALL_FOLDERS: (state) => {
+    ALL_FOLDERS: (state, action) => {
       return {
         ...state,
         folders: action.payload.list,
         activeFolder: action.payload.active,
       };
     },
-    FOLDER_NOTES: (state) => {
+    FOLDER_NOTES: (state, action) => {
       return {
         ...state,
         folderNotes: action.payload,
       };
     },
-    ACTIVATE_NOTE: (state) => {
+    ACTIVATE_NOTE: (state, action) => {
       return {
         ...state,
         activeNote: action.payload,
@@ -44,14 +44,14 @@ export const noteSlice = createSlice({
         deleteFiles: [],
       };
     },
-    ACTIVATE_FOLDER: (state) => {
+    ACTIVATE_FOLDER: (state, action) => {
       return {
         ...state,
         activeFolder: action.payload,
         editNote: false,
       };
     },
-    DELETE_NOTE: (state) => {
+    DELETE_NOTE: (state, action) => {
       return {
         ...state,
         folderNotes: state.folderNotes.filter(
@@ -60,7 +60,7 @@ export const noteSlice = createSlice({
         activeNote: state.folderNotes.length > 1 ? state.folderNotes[1] : null,
       };
     },
-    CANCEL_NOTE: (state) => {
+    CANCEL_NOTE: (state, action) => {
       return {
         ...state,
         editNote: false,
@@ -76,7 +76,7 @@ export const noteSlice = createSlice({
         files: [],
       };
     },
-    SEARCH_NOTE: (state) => {
+    SEARCH_NOTE: (state, action) => {
       return {
         ...state,
         folderNotes: action.payload,
@@ -85,36 +85,36 @@ export const noteSlice = createSlice({
           action.payload.length > 0 ? action.payload[0].collection : null,
       };
     },
-    SHOW_MODAL_FOLDER: (state) => {
+    SHOW_MODAL_FOLDER: (state, action) => {
       return {
         ...state,
         showModalFolder: action.payload,
       };
     },
-    ADD_NEW_FOLDER: (state) => {
+    ADD_NEW_FOLDER: (state, action) => {
       return {
         ...state,
         activeNote: { ...state.activeNote, collection: action.payload },
       };
     },
-    LOGOUT_NOTE: (state) => {
+    LOGOUT_NOTE: (state, action) => {
       return {
         ...initialState,
       };
     },
-    SAVE_FILES: (state) => {
+    SAVE_FILES: (state, action) => {
       return {
         ...state,
         files: [...state.files, action.payload],
       };
     },
-    RESET_FILES: (state) => {
+    RESET_FILES: (state, action) => {
       return {
         ...state,
         files: [],
       };
     },
-    REMOVE_FILES: (state) => {
+    REMOVE_FILES: (state, action) => {
       return {
         ...state,
         activeNote: {
@@ -126,7 +126,7 @@ export const noteSlice = createSlice({
         deleteFiles: [...state.deleteFiles, action.payload],
       };
     },
-    REMOVE_UPLAOD_FILES: (state) => {
+    REMOVE_UPLAOD_FILES: (state, action) => {
       return {
         ...state,
         files: state.files.filter((f) => f.name !== action.payload.name),

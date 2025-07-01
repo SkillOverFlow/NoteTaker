@@ -18,7 +18,7 @@ export const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    SHOW_ALERT: (state) => {
+    SHOW_ALERT: (state, action) => {
       return {
         ...state,
         alert: {
@@ -28,7 +28,7 @@ export const uiSlice = createSlice({
         },
       };
     },
-    HIDE_ALERT: (state) => {
+    HIDE_ALERT: (state, action) => {
       return {
         ...state,
         alert: {
@@ -37,19 +37,19 @@ export const uiSlice = createSlice({
         },
       };
     },
-    SHOW_LOADER: (state) => {
+    SHOW_LOADER: (state, action) => {
       return {
         ...state,
         showLoader: true,
       };
     },
-    HIDE_LOADER: (state) => {
+    HIDE_LOADER: (state, action) => {
       return {
         ...state,
         showLoader: false,
       };
     },
-    SHOW_FOLDER_MOBILE: (state) => {
+    SHOW_FOLDER_MOBILE: (state, action) => {
       return {
         ...state,
         mobile: {
@@ -59,7 +59,7 @@ export const uiSlice = createSlice({
         },
       };
     },
-    SHOW_NOTES_MOBILE: (state) => {
+    SHOW_NOTES_MOBILE: (state, action) => {
       return {
         ...state,
         mobile: {
@@ -69,7 +69,7 @@ export const uiSlice = createSlice({
         },
       };
     },
-    SHOW_NOTE_MOBILE: (state) => {
+    SHOW_NOTE_MOBILE: (state, action) => {
       return {
         ...state,
         mobile: {

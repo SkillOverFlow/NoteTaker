@@ -1,4 +1,4 @@
-import { db, firebase } from "./firebase";
+import { db } from "./firebase";
 import { v4 as uuidv4 } from "uuid";
 
 export const saveNote = async (uid, note) => {
@@ -50,35 +50,35 @@ export const createCollection = async (collection, data) => {
   await db.collection(collection).add(data);
 };
 
-export const uploadFile = (uid, fileList) => {
-  const refId = uuidv4().replaceAll("-", "").substr(0, 20);
-  const storageRef = firebase.storage().ref();
-  const uploadTask = storageRef.child(`${uid}/${refId}`).put(fileList[0]);
+// export const uploadFile = (uid, fileList) => {
+//   const refId = uuidv4().replaceAll("-", "").substr(0, 20);
+//   const storageRef = firebase.storage().ref();
+//   const uploadTask = storageRef.child(`${uid}/${refId}`).put(fileList[0]);
 
-  uploadTask.on(
-    "state_changed",
-    (snapshot) => {
-      let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    },
-    (error) => {},
-    () => {
-      uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {});
-    }
-  );
-};
+//   uploadTask.on(
+//     "state_changed",
+//     (snapshot) => {
+//       let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//     },
+//     (error) => {},
+//     () => {
+//       uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {});
+//     }
+//   );
+// };
 
-export const deleteFile = (file) => {
-  // Create a reference to the file to delete
-  const storageRef = firebase.storage().ref();
-  const desertRef = storageRef.child(`cghK1k38L4bLKTYkbqIZyPStDyf1/${file}`);
+// export const deleteFile = (file) => {
+//   // Create a reference to the file to delete
+//   const storageRef = firebase.storage().ref();
+//   const desertRef = storageRef.child(`cghK1k38L4bLKTYkbqIZyPStDyf1/${file}`);
 
-  // Delete the file
-  desertRef
-    .delete()
-    .then(function () {
-      // File deleted successfully
-    })
-    .catch(function (error) {
-      // Uh-oh, an error occurred!
-    });
-};
+//   // Delete the file
+//   desertRef
+//     .delete()
+//     .then(function () {
+//       // File deleted successfully
+//     })
+//     .catch(function (error) {
+//       // Uh-oh, an error occurred!
+//     });
+// };

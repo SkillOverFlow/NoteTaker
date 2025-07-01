@@ -7,9 +7,6 @@ import "./styles/styles.scss";
 import { AppRouter } from "./router/AppRouter";
 
 function App() {
-  useEffect(() => {
-    alert("App.jsx");
-  }, []);
   return (
     <Provider store={store}>
       <AppRouter />

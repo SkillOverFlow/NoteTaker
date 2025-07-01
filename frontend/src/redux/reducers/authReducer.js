@@ -12,7 +12,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    AUTH_LOGIN: (state) => {
+    AUTH_LOGIN: (state, action) => {
       return {
         ...state,
         name: action.payload.displayName,
@@ -22,13 +22,13 @@ export const authSlice = createSlice({
         observable: false,
       };
     },
-    AUTH_LOGOUT: (state) => {
+    AUTH_LOGOUT: (state, action) => {
       return {
         ...initialState,
         observable: false,
       };
     },
-    OBSERVABLE_NEXT: (state) => {
+    OBSERVABLE_NEXT: (state, action) => {
       return {
         ...state,
         observable: false,
